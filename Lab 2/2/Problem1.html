@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Last Name</title>
+    <style type="text/css">
+        table{
+            width: 35%;
+        }
+        tr{
+            height:40px;
+        }
+        td.left{
+            width:30%;
+        }
+        td.right {
+            width: 70%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+</head>
+<body>
+    <table border="1" style="border-collapse:collapse" cellpadding="4px">
+        <tr>
+            <td style="text-align:right" class="left"><b>Last Name</b></td>
+            <td colspan="3"><input style="width:95%" class="right" type="text" name="lname" value="Tri" /></td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><b>First Name</b></td>
+            <td colspan="3"><input style="width:95%" type="text" name="fname" value="Truong" /></td>
+        </tr>
+        <tr style="height:70px">
+            <td style="text-align:right"><b>Address</b></td>
+            <td colspan="3"><input style="width:95%; height:55px" type="text" name="address" value="Quang Nam, VN" /></td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><b>City</b></td>
+            <td style="width:50%"><input style="width:95%" type="text" name="city" value="Quang Nam" /></td>
+            <td style="text-align:right"><b>State</b></td>
+            <td style="width:20%"><input style="width:80%" type="text" name="state" value="" /></td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><b>Zip/Postal Code</b></td>
+            <td colspan="3"><input style="width:30%" type="text" name="zip" value="486266" /></td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><b>Country</b></td>
+            <td colspan="3">
+                <select>
+                    <option value="VietNam">VietNam</option>
+                    <option value="US">US</option>
+                    <option value="UK">UK</option>
+                    <option value="Moon">Moon</option>
+                 </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><b>Phone (country code, area code, number)</b></td>
+            <td colspan="3">
+                <p>(+<input style="width:25%" type="text" name="countryCode" value="84" />)
+                <input style="width:20%" type="text" name="areaCode" value="098" />-
+                <input style="width:40%" type="text" name="phoneNumber" value="5626" /></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><b>E-mail</b></td>
+            <td colspan="3"><input style="width:95%" type="text" name="email" value="gwhdlkawd@eiu.edu.vn" /></td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><b>Birth date</b></td>
+            <td colspan="3">
+                <p>
+                    Month <input style="width:10%" type="text" name="month" value="03" /> Day 
+                    <input style="width:10%" type="text" name="day" value="09" />Year (4 digit)
+                    <input style="width:20%" type="text" name="year" value="1997" />
+                </p>
+            </td>   
+        </tr>
+        <tr>
+            <td style="text-align:right"><b>Gender</b></td>
+            <td colspan="3">
+                <select>
+                    <option value="male">Male</option>
+                    <option value="fmale">Female</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:right"><b>Starting date</b></td>
+            <td colspan="3">
+                <p>
+                    <input type="radio" value="Spring2017" checked> Spring 2017
+                    <input type="radio" value="Summer2017" checked> Summer 2017
+                </p>
+            </td>         
+        </tr>
+        <tr style="height:70px">
+            <td style="text-align:right"><b>Comments/Questions</b></td>
+            <td colspan="3"><input style="width:95%; height:55px" type="text" name="cmt" value="ajwfidkyua,hwdluiashdwdasucguawd" /></td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align:center">
+                <button type="button" class="btn btn-outline-primary">Submit</button>
+                <button type="button" class="btn btn-outline-primary">Clear this form</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
