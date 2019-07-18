@@ -1,0 +1,22 @@
+table{
+	background-color: #333;
+}
+.Gray{
+	color: gray;
+}
+.Status{
+	padding-bottom: 17px;
+	color: red;
+}
+.Yellow{
+	color: rgb(221, 200, 114); 
+}
+.Orange{
+	color: rgb(194, 78, 0);
+}
+.title{
+	color: white;
+}
+.green{
+	color: green;
+}

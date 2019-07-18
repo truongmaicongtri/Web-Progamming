@@ -1,0 +1,19 @@
+.flag{
+ 	width: 20px;
+ 	height: auto;
+ }
+ span{
+ 	vertical-align: top;
+ }
+ tr:nth-child(even){
+ 	background-color: white;
+ }
+ tr:nth-child(odd){
+ 	background-color: rgb(182, 206, 192);
+ }
+ tr:first-child{
+ 	background-color: rgb(41, 168, 15);
+ }
+ table {
+    border: 1px solid black;
+ }
