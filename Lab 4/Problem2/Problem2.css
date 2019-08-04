@@ -29,7 +29,7 @@ body {
     font: 14px normal Arial;
     color: white;
     background: #e570e7; 
-    background: linear-gradient(to bottom,  #ffffff 3%,#c85ec7 12%,#c45ec8 20%,#bd32cf 20%,#6c1df4 45%); 
+    background: linear-gradient(to bottom,  #ffffff 3%,#c85ec7 12%,#c353c7 20%,#bd32cf 20%,#5e13df 45%); 
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#6c1df4',GradientType=0 ); 
 
 }
@@ -37,10 +37,10 @@ body button {
     font: 14px normal Arial;
     color: white;
     background: #e570e7;
-    background: -moz-linear-gradient(top,  #e570e7 0%, #c85ec7 1%, #6c1df4 21%); 
-    background: -webkit-linear-gradient(top,  #e570e7 0%,#c85ec7 1%,#6c1df4 21%); 
-    background: linear-gradient(to bottom,  #e570e7 0%,#c85ec7 1%,#6c1df4 21%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#6c1df4',GradientType=0 ); 
+    background: -moz-linear-gradient(top,  #c85ec7 0%, #c353c7 1%, #5e13df 21%); 
+    background: -webkit-linear-gradient(top,  #c85ec7 0%,#c353c7 1%,#5e13df 21%); 
+    background: linear-gradient(to bottom,  #c85ec7 0%,#c353c7 1%,#5e13df 21%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#5e13df',GradientType=0 ); 
 }
 
     body header {

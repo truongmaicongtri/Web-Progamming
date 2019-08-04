@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table, td, tr {
+            padding: 5px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        fieldset {
+            display: block;
+            height:90%;
+            width:90%;
+            border: #000000 2px solid;
+        }   
+        legend{
+            text-align:center;
+        }
+        span{
+            font-size:30px;
+            font-weight:bold;
+        }
+    </style>
+    
+</head>
+<body>
+    <table width="80%" style="border: #000000 2px solid;">
+        <tr>
+            <td style="border: #000000 2px solid;">
+                <a href="#"><span>Apple</span></a>
+                <a href="#"><span>Toshiba</span></a>
+                <a href="#"><span>Lenovo</span></a>
+                <a href="#"><span>Dell</span></a>
+                <a href="#"><span>Asus</span></a>
+                <a href="#"><span>Acer</span></a>
+                <a href="#"><span>HP</span></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%">
+                    <tr>
+                        <td width="70%">
+                            <table border="1" width="100%" style="border:2px solid;">
+                                <tr>
+                                    <td >
+                                        <fieldset>
+                                            <legend>Apple Mac</legend>
+                                            <table border="0">
+                                                <tr>
+                                                    <td style="width:65%">
+                                                        <img src="mac.jpg" height="100" width="100" />
+                                                        <br />
+                                                        1300 USD
+                                                    </td>
+                                                    <td>
+                                                        <br style="text-overflow:clip">64GB SSD <br />
+                                                        <br>2GB DDR<br />
+                                                        <br>Intel Core I5<br />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset>
+                                            <legend>Apple Mac</legend>
+                                            <table border="0">
+                                                <tr>
+                                                    <td style="width:60%">
+                                                        <img src="mac.jpg" height="100" width="100" />
+                                                        <br />
+                                                        1300 USD
+                                                    </td>
+                                                    <td>
+                                                        <br style="text-overflow:clip">64GB SSD <br />
+                                                        <br>2GB DDR<br />
+                                                        <br>Intel Core I5<br />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </fieldset>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <fieldset>
+                                            <legend>Apple Mac</legend>
+                                            <table border="0">
+                                                <tr>
+                                                    <td style="width:60%">
+                                                        <img src="mac.jpg" height="100" width="100" />
+                                                        <br />
+                                                        1300 USD
+                                                    </td>
+                                                    <td>
+                                                        <br style="text-overflow:clip">64GB SSD <br />
+                                                        <br>2GB DDR<br />
+                                                        <br>Intel Core I5<br />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset>
+                                            <legend>Apple Mac</legend>
+                                            <table border="0">
+                                                <tr>
+                                                    <td style="width:60%">
+                                                        <img src="mac.jpg" height="100" width="100" />
+                                                        <br />
+                                                        1300 USD
+                                                    </td>
+                                                    <td>
+                                                        <br style="text-overflow:clip">64GB SSD <br />
+                                                        <br>2GB DDR<br />
+                                                        <br>Intel Core I5<br />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </fieldset>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <fieldset>
+                                            <legend>Apple Mac</legend>
+                                            <table border="0">
+                                                <tr>
+                                                    <td style="width:60%">
+                                                        <img src="mac.jpg" height="100" width="100" />
+                                                        <br />
+                                                        1300 USD
+                                                    </td>
+                                                    <td>
+                                                        <br style="text-overflow:clip">64GB SSD <br />
+                                                        <br>2GB DDR<br />
+                                                        <br>Intel Core I5<br />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </fieldset>
+                                    </td>
+                                    <td>
+                                        <fieldset>
+                                            <legend>Apple Mac</legend>
+                                            <table border="0">
+                                                <tr>
+                                                    <td style="width:60%">
+                                                        <img src="mac.jpg" height="100" width="100" />
+                                                        <br />
+                                                        1300 USD
+                                                    </td>
+                                                    <td>
+                                                        <br style="text-overflow:clip">64GB SSD <br />
+                                                        <br>2GB DDR<br />
+                                                        <br>Intel Core I5<br />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </fieldset>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <h2>Min Price: <output id="count1">1</output>USD</h2>                           
+                            <input type="range" value="1" min="1" max="6969" step="15" oninput="count1.value=this.value" id="myRange1">
+                            <h2>Max Price: <output id="count2">6969</output>USD</h2>
+                            <input type="range" value="6969" min="1" max="6969" step="15" oninput="count2.value = this.value" id="myRange2">
+                            <h2>Min RAM: <output id="count3">1</output>GB</h2>
+                            <input type="range" value="1" min="1" max="32" step="1" oninput="count3.value=this.value" id="myRange3">
+                            <h2>Min RAM: <output id="count4">32</output>GB</h2>
+                            <input type="range" value="32" min="1" max="32" step="1" oninput="count4.value=this.value" id="myRange4">
+                        </td>
+                    </tr>
+                </table>                                  
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
