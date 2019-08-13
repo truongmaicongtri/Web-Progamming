@@ -1,0 +1,941 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="LazadaWebPage.css">
+</head>
+
+<body style="background-color: #f2f3f7;">
+    <div class="mui-zebra-module">
+        <div id="J_pageSiteNav" class="site-nav J_NavScroll">
+            <div class="page-header " id="hidenNav">
+                <div id="topActionHeader" class="page-header-content-wrap J_NavScroll">
+                    <div class="page-header-content">
+                        <div class="page-links-bar" id="topActionLinks">
+                            <div class="links-list header-content VN vi">
+                                <div class="top-links-item">
+                                    <a class="orange" href="#" id="topActionDownload">TẢI APP</a>
+                                </div>
+                                <div class="top-links-item" id="topActionSell">
+                                    <a class="cyan" href="#">BÁN HÀNG CÙNG LAZADA</a>
+                                </div>
+                                <div class="top-links-item" id="topActionCustomCare">
+                                    <span>CHĂM SÓC KHÁCH HÀNG</span>
+                                </div>
+                                <div class="top-links-item grey" id="topActionTrack">
+                                    <span>KIỂM TRA ĐƠN HÀNG</span>
+                                </div>
+                                <div class="top-links-item" id="topActionUserAccount">
+                                    <span id="myAccountTrigger" class="grey">TÀI KHOẢN</span>
+                                </div>
+                                <div class="top-links-item grey" id="topActionSwitchLang">
+                                    <span>CHANGE LANGUAGE</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-logo-bar">
+                            <div class="logo-bar-content header-content">
+                                <div class="page-logo-content">
+                                    <a href="#" data-spm="dhome">
+                                        <img src="LazadaWebPage_files/TB1YNS2bkfb_uJjSsD4XXaqiFXa.png" alt="Mua sắm online Lazada.vn Logo">
+                                    </a>
+                                </div>
+                                <div class="page-nav-search" data-spm="search">
+                                    <form action="#">
+                                        <div class="search-box--2I2a">
+                                            <div class="search-box__bar--29h6">
+                                                <input type="search" id="q" name="q" placeholder="Tìm kiếm trên Lazada" class="search-box__input--O34g" value="">
+                                                <input type="hidden" name="_keyori" value="ss"><input type="hidden" name="from" value="input">
+                                                <input type="hidden" name="spm">
+                                            </div>
+                                            <div class="search-box__search--2fC5">
+                                                <button class="search-box__button--1oH7">Tìm kiếm</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="page-nav-cart">
+                                    <a href="#">
+                                        <span class="cart-icon"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mui-zebra-module">
+                        <div class="page-site-nav-menu">
+                            <div class="page-site-menu-nav-container">
+                                <div class="page-site-menu-nav-category">
+                                    <a class="page-site-menu-nav-category-label">
+                                        <span class="page-site-menu-nav-category-text">
+                                            Danh mục
+                                        </span>
+                                    </a>
+                                    <div class="page-site-nav-menu-dropdown">
+                                        <ul class="page-site-menu-root">
+                                            <li class="page-site-menu-root-item">
+                                                <a>
+                                                    <span>Thiết bị điện tử</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-site-menu-root-item">
+                                                <a>
+                                                    <span>Phụ kiện điện tử</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-site-menu-root-item">
+                                                <a>
+                                                    <span>Thiết bị gia dụng</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-site-menu-root-item">
+                                                <a>
+                                                    <span>Chăm sóc sức khỏe, Làm đẹp</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-site-menu-root-item">
+                                                <a>
+                                                    <span>Hàng Mẹ, Bé và Đồ chơi</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-site-menu-root-item">
+                                                <a>
+                                                    <span>Siêu thị / Tạp hóa</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-site-menu-root-item">
+                                                <a>
+                                                    <span>Hàng Gia dụng và Đời sống</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <nav class="page-menu-labels">
+                                    <a class="page-menu-labels-item" href="#">
+                                        <i class="page-site-nav-menu-iconfont page-menu-labels-item-icon"></i>
+                                        <span class="page-menu-labels-item-text">Gian Hàng Chính Hãng</span>
+                                    </a>
+                                    <a class="page-menu-labels-item" href="#">
+                                        <i class="page-site-nav-menu-iconfont page-menu-labels-item-icon"></i>
+                                        <span class="page-menu-labels-item-text">Dịch Vụ  &amp; Nạp tiền</span>
+                                    </a>
+                                    <a class="page-menu-labels-item" href="#">
+                                        <i class="page-site-nav-menu-iconfont page-menu-labels-item-icon"></i>
+                                        <span class="page-menu-labels-item-text">Mã Giảm Giá</span>
+                                    </a>
+                                    <a class="page-menu-labels-item" href="#">
+                                        <i class="page-site-nav-menu-iconfont page-menu-labels-item-icon"></i>
+                                        <span class="page-menu-labels-item-text">Khuyến Mãi</span>
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hết #1 -->
+    <div class="advertisment_panel">
+        <div class="panel_element">
+            <h1 class="shop_name">
+                ZAVANS
+            </h1>
+            <div class="shop_rate">
+                55% Đánh giá tích cực
+            </div>
+        </div>
+        <div class="panel_element">
+            <h2>Địa chỉ nhà bán hàng</h2>
+            <span class="gLv67">Hà Nội</span>
+        </div>
+        <div class="panel_element">
+            <h2>Ngành hàng chính của nhà bán hàng</h2>
+            <div class="_Hb1v">
+                <div>Thời trang &amp; Du lịch</div>
+            </div>
+        </div>
+        <div class="panel_element">
+            <h2>Quy mô nhà bán hàng</h2>
+        </div>
+        <div class="panel_element">
+            <h2>Thời gian trên Lazada</h2>
+            <span>1 year</span>
+        </div>
+        <div class="panel_element-text-right panel_element">
+            <div class="_1h4j3">Xem chi tiết</div>
+        </div>
+    </div>
+    <!-- Hết #2 -->
+    <div id="root" class="root">
+        <div class="layout-container">
+            <div class="layout">
+                <div class="intl-lazada-smod-categoryBar">
+                    <div class="hd">
+                        <div class="shop-bg">
+                            <a class="shop">
+                                <div class="shop-content">
+                                    <div class="shop-logo">
+                                        <img src="LazadaWebPage_files/bd0a97e40a82b186a914b4469b6d58ab.jpg">
+                                    </div>
+                                    <div class="shop-description">
+                                        <div class="title">
+                                            <div class="shop-name">ZAVANS</div>
+                                            <i class="next-icon next-icon-ic-Badge-OfficialSt next-icon-medium shop-badge"></i>
+                                        </div>
+                                        <div class="shop-rating"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="tabs">
+                            <div class="tab active">
+                                Trang Chủ
+                            </div>
+                            <div class="tab">
+                                Tất cả Sản phẩm
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ft">
+                        <div class="next-nav next-nav-normal hoz active bottom nav-list">
+                            <div class="next-menu hoz next-nav-menu">
+                                <div class="next-menu hoz intl-categoryBar-category-list">
+                                    <ul class="next-menu-content">
+                                        <li tabindex="-1" role="menuitem" class="next-menu-item">
+                                            <a href="#" class="category-link">Giày nam</a>
+                                        </li>
+                                        <li tabindex="-1" role="menuitem" class="next-menu-item">
+                                            <a href="#" class="category-link">Giày nữ</a>
+                                        </li>
+                                        <li aria-haspopup="true" tabindex="-1" role="menuitem" class="next-menu-item next-menu-popup-item">
+                                            Thời trang nam
+                                            <!--Popup chỗ này-->
+                                        </li>
+                                        <li tabindex="-1" role="menuitem" class="next-menu-item">
+                                            <a href="#" class="category-link">Thời trang nữ</a>
+                                        </li>
+                                        <li tabindex="-1" role="menuitem" class="next-menu-item">
+                                            <a href="#" class="category-link">Túi xách và Vali túi du lịch</a>
+                                        </li>
+                                        <li tabindex="-1" role="menuitem" class="next-menu-item">
+                                            <a href="#" class="category-link">Thể thao</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layout-container" id="bd">
+        <div class="layout" id="bd_0">
+            <a href="#" class="one-link">
+                <img src="LazadaWebPage_files/7e486c54ec2bdaaccff968865e0fb804.png">
+            </a>
+        </div>
+        <div class="layout" id="bd_1">
+            <div class="multi-list">
+                <ul class="multi-main-list">
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/e66ab65108991e33a748c2339cede4cf.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Giày nam</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/841f9ccd89cc50d2982dd21625557996.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Quần Jean</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/9c094667032121eca858e1675e3d761f.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Áo thời trang nam</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/c19e8599c5db9ceeafb5c2faa69e5c77.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Áo khoác nam</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/edbe906eb39ebf42fb1b1f5ed2cff23f.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Áo sơ mi nam</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/fc403825a068056d79811a5a902d2e41.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Phụ kiện nam</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layout" id="bd_2">
+            <div class="multi-list">
+                <ul class="multi-main-list">
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/7ea5cc764a0ef76c2ddd87d3cba90166.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Đồ ngủ nội y</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/21ddb2b4cd0c6bcf0165d3b2869e9187.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Trang phục nữ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/990556e8b7823cddedbfd9a3498e4f1d.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Phụ kiện nữ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/bb8a8f7b03596b4090238403f8450c8b.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Giày bốt nữ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/12ff1b8ccbf2fb07af6c2fea718837b1.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Giày sneaker nữ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-wrapout">
+                                <div class="img-wrap">
+                                    <img src="LazadaWebPage_files/9f1aabc6771f16c44dafc8be0f861637.png">
+                                </div>
+                            </div>
+                            <span class="img-name">Áo sweater & Cardigan nam</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layout" id="bd_3">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <a href="#">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    </ol>
+                </a>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="#">
+                            <img class="d-block w-100" src="LazadaWebPage_files/8adb18e9c7b8e758f76b94d4b212a08a.png" alt="First slide">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="#">
+                            <img class="d-block w-100" src="LazadaWebPage_files/0c86f835dd9558c9ea20e38889ff25ac.png" alt="Second slide">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="#">
+                            <img class="d-block w-100" src="LazadaWebPage_files/51a06a413a73a63b01f3b8d8c7431c5e.png" alt="Third slide">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="#">
+                            <img class="d-block w-100" src="LazadaWebPage_files/1131692ea6edfd4a2dc2ed4e6efdd9d8.png" alt="Fourth slide">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="#">
+                            <img class="d-block w-100" src="LazadaWebPage_files/f4ab9c8b9a9e13d7569cd950433605ce.png" alt="Fifth slide">
+                        </a>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="layout" id="bd_4">
+            <div class="intl-lazada-smod-carouselProductRecommend-wrap">
+                <div class="carousel-left">
+                    <a href="#" class="link"><img src="LazadaWebPage_files/448f779f90cc7ee0b62e2c16ecab86e9.png"></a>
+                </div>
+                <div class="carousel-right">
+                    <div id="carousel2" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="product">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="LazadaWebPage_files/bo-3-ao-thun-nam-body-co-tron-zavans-den-trang-xam-1491857267-7978125-ee6a01d0e6e021e115343adb79b3a6c0-product.jpg" alt="First slide">
+                                        <div class="product-meta">
+                                            <div class="product-title"> Áo thun nam tay dài ZAVANS</div>
+                                            <div class="product-price">190.000 VND</div>
+                                            <div class="product-discount-box">
+                                                <span class="product-old-price">310.000 VND</span>
+                                                <span class="product-discount"> -39%</span>
+                                            </div>
+                                            <div class="product-rating">
+                                                <div class="ratingWrap">
+                                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                                </div>
+                                                <span class="reviews">(0)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="LazadaWebPage_files/ao-khoac-jean-nam-nhap-khau-akjn01-zavans-xanh-1510419009-3924259-64a62c9c4d37d99e85f61dae02b2b2b2-product.jpg" alt="First slide">
+                                        <div class="product-meta">
+                                            <div class="product-title">Áo khoác nam tay dài ZAVANS</div>
+                                            <div class="product-price">190.000 VND</div>
+                                            <div class="product-discount-box">
+                                                <span class="product-old-price">12.310.000 VND</span>
+                                                <span class="product-discount"> -99%</span>
+                                            </div>
+                                            <div class="product-rating">
+                                                <div class="ratingWrap">
+                                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                                </div>
+                                                <span class="reviews">(0)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="LazadaWebPage_files/bo-2-ao-thun-nam-tay-dai-zavans-2017-den-xam-1513675822-31385631-6a31515a8de51d9137cc0a7b17cce99f-product.jpg" alt="First slide">
+                                        <div class="product-meta">
+                                            <div class="product-title">Áo khoác nam tay dài ZAVANS - Tặng quần lót</div>
+                                            <div class="product-price">190.000 VND</div>
+                                            <div class="product-discount-box">
+                                                <span class="product-old-price">110.000 VND</span>
+                                                <span class="product-discount"> -99%</span>
+                                            </div>
+                                            <div class="product-rating">
+                                                <div class="ratingWrap">
+                                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                                </div>
+                                                <span class="reviews">(0)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="LazadaWebPage_files/ao-khoac-jean-nam-nhap-khau-akjn01-zavans-xanh-1510419009-3924259-64a62c9c4d37d99e85f61dae02b2b2b2-product.jpg" alt="First slide">
+                                        <div class="product-meta">
+                                            <div class="product-title"> Áo khoác nam tay dài ZAVANS</div>
+                                            <div class="product-price">122.000 VND</div>
+                                            <div class="product-discount-box">
+                                                <span class="product-old-price">23.000 VND</span>
+                                                <span class="product-discount"> -99%</span>
+                                            </div>
+                                            <div class="product-rating">
+                                                <div class="ratingWrap">
+                                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                                </div>
+                                                <span class="reviews">(0)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="product">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="LazadaWebPage_files/ao-khoac-jean-nam-nhap-khau-akjn01-zavans-xanh-1510419009-3924259-64a62c9c4d37d99e85f61dae02b2b2b2-product.jpg" alt="First slide">
+                                        <div class="product-meta">
+                                            <div class="product-title">[ 3] Áo khoác nam tay dài ZAVANS</div>
+                                            <div class="product-price">0 VND</div>
+                                            <div class="product-discount-box">
+                                                <span class="product-old-price">10.000 VND</span>
+                                                <span class="product-discount"> -100%</span>
+                                            </div>
+                                            <div class="product-rating">
+                                                <div class="ratingWrap">
+                                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                                </div>
+                                                <span class="reviews">(0)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="LazadaWebPage_files/bo-2-ao-thun-nam-tay-dai-zavans-2017-den-xam-1513675822-31385631-6a31515a8de51d9137cc0a7b17cce99f-product.jpg" alt="First slide">
+                                        <div class="product-meta">
+                                            <div class="product-title">[ 3] Áo khoác nam tay dài ZAVANS</div>
+                                            <div class="product-price">1.000 VND</div>
+                                            <div class="product-discount-box">
+                                                <span class="product-old-price">1.122.310.000 VND</span>
+                                                <span class="product-discount"> -99%</span>
+                                            </div>
+                                            <div class="product-rating">
+                                                <div class="ratingWrap">
+                                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                                </div>
+                                                <span class="reviews">(0)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="LazadaWebPage_files/ao-khoac-jean-nam-nhap-khau-akjn01-zavans-xanh-1510419009-3924259-64a62c9c4d37d99e85f61dae02b2b2b2-product.jpg" alt="First slide">
+                                        <div class="product-meta">
+                                            <div class="product-title">[ 3] Áo khoác nam tay dài ZAVANS</div>
+                                            <div class="product-price">10.000 VND</div>
+                                            <div class="product-discount-box">
+                                                <span class="product-old-price">1.230.000 VND</span>
+                                                <span class="product-discount"> -99%</span>
+                                            </div>
+                                            <div class="product-rating">
+                                                <div class="ratingWrap">
+                                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                                </div>
+                                                <span class="reviews">(0)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="LazadaWebPage_files/ao-khoac-nam-mang-to-dang-dai-nhap-khau-zavans-kaki-tang-ao-thun-nam-dai-tay-1509073490-72903581-ce1627ca501be7e57d5b23b1481259c6-product.jpg" alt="Second slide">
+                                        <div class="product-meta">
+                                            <div class="product-title">[ 3] Áo khoác nam tay dài ZAVANS</div>
+                                            <div class="product-price">123.000 VND</div>
+                                            <div class="product-discount-box">
+                                                <span class="product-old-price">210.000 VND</span>
+                                                <span class="product-discount"> -99%</span>
+                                            </div>
+                                            <div class="product-rating">
+                                                <div class="ratingWrap">
+                                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                                </div>
+                                                <span class="reviews">(0)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color:black"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="background-color:black"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layout" id="bd_5">
+            <div class="products">
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/bo-2-ao-thun-nam-tay-dai-zavans-2017-den-xam-1513675822-31385631-6a31515a8de51d9137cc0a7b17cce99f-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">Giày</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(425)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/quan-jogger-thun-nam-thoi-trang-zavans-mau-01-den-1506673952-41069751-22b11d3630278b70bdbc9ed9407ff5a6-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">[ 3] Quần</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(4)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/giay-luoi-vai-nam-hoa-tiet-m-zavansden-de-den-1500883226-3749816-3784734ee46797afa1b4d3248560dd20-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">Giày + Tặng quần lót cotton 99k</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(1123)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/giay-cao-co-vai-chat-dep-zavans-mau-nu-mau-trang-1501673808-4747749-13aa54b43f9d992e49f86deb4d6d394c-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">2 chiếc giày</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(453)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/giay-cao-co-vai-chat-dep-zavans-mau-nam-mau-den-1503487810-4492649-529d85bf00347be6b5a8a0d49bca5212-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">Tiếp tục là giày</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(123)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/giay-sneaker-nu-cv-thap-co-zavans-den-1513173864-4154886-419ca19e965364d172271a4c62f4d5c4-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">Lại là giày</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(40)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/ao-khoac-nam-mang-to-dang-dai-nhap-khau-zavans-kaki-tang-ao-thun-nam-dai-tay-1509073490-72903581-ce1627ca501be7e57d5b23b1481259c6-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">[ 3] Áo khoác nam tay dài ZAVANS</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(120)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/giay-luoi-vai-nam-hoa-tiet-m-zavansden-de-den-1500883226-3749816-3784734ee46797afa1b4d3248560dd20-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">Một đôi giày</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(110)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/combo-3-ao-thun-nam-tay-dai-zavans-tang-quan-lot-cotton-99k-1515658225-84810113-f7a45f82399933305df4d9b775b829e1-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">Áo thun nam tay dài ZAVANS</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(5)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/combo-3-ao-thun-dai-tay-nam-zavans-den-trang-xam-tang-quan-lot-nam-cotton-cao-cap-1509093102-90819581-26527e6a4662dee52eeee489e8c1486e-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">[ 3] Áo thun nam tay dài ZAVANS</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(2)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/ao-khoac-jean-nam-nhap-khau-akjn01-zavans-xanh-1510419009-3924259-64a62c9c4d37d99e85f61dae02b2b2b2-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">Áo thun nam tay không ngắn ZAVANS</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(1)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <img class="d-block w-100" src="LazadaWebPage_files/ao-khoac-jean-nam-nhap-khau-akjn05-xanh-bo-1506564688-42046241-0efa880dc69f4111e1ce7145df4e4aac-product.jpg" alt="Second slide">
+                        <div class="product-meta">
+                            <div class="product-title">Trai đẹp</div>
+                            <div class="product-price">123.000 VND</div>
+                            <div class="product-discount-box">
+                                <span class="product-old-price">210.000 VND</span>
+                                <span class="product-discount"> -99%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="ratingWrap">
+                                    <!-- Lười quá bỏ, nào rảnh làm tiếp cái này -->
+                                </div>
+                                <span class="reviews">(0)</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="footer">
+        <div class="footer-first">
+            <div class="page-footer-inner">
+                <div class="page-footer-width-25">
+                    <h3 class="footer-title">LIÊN HỆ VỚI LAZADA</h3>
+                    <ul class="footer-list">
+                        <li class="footer-li"><a href="#">Thứ 2 đến CN: 9h - 18h (Hotline), 7h - 22h (chat trực tuyến)</a></li>
+                        <li class="footer-li"><a href="#">Trung tâm hỗ trợ</a></li>
+                        <li class="footer-li"><a href="#">Thanh toán</a></li>
+                        <li class="footer-li"><a href="#">Hướng dẫn đặt hàng</a></li>
+                        <li class="footer-li"><a href="#">Giao hàng &amp; Nhận hàng</a></li>
+                        <li class="footer-li"><a href="#">Chính sách hàng nhập khẩu</a></li>
+                        <li class="footer-li"><a href="#">Hướng dẫn đổi trả hàng</a></li>
+                        <li class="footer-li"><a href="#">Hướng dẫn và điều kiện sử dụng voucher</a></li>
+                    </ul>
+                </div>
+                <div class="page-footer-width-25">
+                    <h3 class="footer-title">LAZADA VIỆT NAM</h3>
+                    <ul class="footer-list">
+                        <li class="footer-li">
+                            <a href="#">Về Lazada Việt Nam</a>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">Bán hàng cùng Lazada</a>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">Chương trình Lazada Afﬁliate</a>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">Tuyển dụng</a>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">Điều khoản mua bán hàng hóa</a>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">Chính sách bảo mật</a>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">Báo chí</a>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">Thương hiệu tại Lazada</a>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">Danh mục sản phẩm</a>
+                        </li>
+                        <li class="footer-li">
+                            <span>Hộp thư nhận góp ý và phản hồi trực tiếp đến Tổng giám đốc Lazada.vn</span>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">alexandre.dardy@lazada.vn</a>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">Quy chế quản lý hoạt động</a>
+                        </li>
+                        <li class="footer-li">
+                            <a href="#">Redmart</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="page-footer-width-50">
+                    <h3 class="footer-title">ĐĂNG KÝ NHẬN TIN TỪ LAZADA</h3>
+                    <div></div>
+                    <form class="footer-email-register" action="#" method="post">
+                        <div class="footer-email-wrap-right">
+                            <div class="footer-email-radio-group">
+                                <div class="footer-radio-lable">
+                                    <div class="page-radio-symbal">
+                                        <input type="radio" style="margin-top: 15px;">
+                                        <label class="footer-form-input-label">Nam</label>
+                                    </div>
+                                </div>
+                                <div class="footer-radio-lable">
+                                    <div class="page-radio-symbal">
+                                        <input type="radio" style="margin-top: 15px;">
+                                        <label class="footer-form-input-label">Nữ</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="footer-form-input-submit footer-btn" type="submit" value="Đăng ký">
+                        </div>
+                        <div class="footer-email-wrap-left">
+                            <input class="input-email" type="text" placeholder="Your Email Address">
+                        </div>
+                    </form>
+                    <div class="page-footer-app-downloads">
+                        <div class="page-footer-sprit pull-left logo icon-logo-lazada-footer"></div>
+                        <div class="pull-left page-app-download-text">
+                            <div class="title">THẢNH THƠI MUA SẮM</div>
+                            <div class="text">Tải App Lazada</div>
+                        </div>
+                    </div>
+                    <div class="page-footer-app-supplement">
+                        <div>CÔNG TY TNHH RECESS</div>
+                        <div>Giấy CNĐKDN: 0308808576 – Ngày cấp: 06/5/2009, được sửa đổi lần thứ 15 ngày 24/7/2017. </div>
+                        <div>Cơ quan cấp: Phòng Đăng ký kinh doanh – Sở kế hoạch và Đầu tư TP.HCM </div>
+                        <div>Địa chỉ đăng ký kinh doanh: Tầng 19, Tòa nhà Saigon Centre – Tháp 2, 67 Lê Lợi, Phường Bến Nghé, Quận 1, Tp. Hồ Chí Minh, Việt Nam.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="LazadaWebPage.js" type="text/javascript"></script>
+</body>
+
+</html>
