@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>JS Event</title>
+</head>
+
+
+<body onload="LoadData()">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <a href="#">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            </ol>
+        </a>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="#">
+                    <img class="d-block w-100" src="carousel/cho-golden-1024x683.jpg" alt="First slide">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="#">
+                    <img class="d-block w-100" src="carousel/Golden-Retriever-3.jpg" alt="Second slide">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="#">
+                    <img class="d-block w-100" src="carousel/how-long-do-golden-retrievers-live-KH-long.jpg" alt="Third slide">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="#">
+                    <img class="d-block w-100" src="carousel/iStock-607926260.jpg" alt="Fourth slide">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="#">
+                    <img class="d-block w-100" src="carousel/puppies-2243686_960_720.jpg" alt="Fifth slide">
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        $(function() {
+            setTimeout(function() {
+                window.onscroll = function() {
+                    stickyNavFunction()
+                }
+            }, 1000)
+            $('.carousel').carousel({
+                interval: 2000
+            })
+        })
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quản lý sinh viên</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        header {
+            padding: 10px;
+            color: black;
+        }
+        
+        nav {
+            float: left;
+            width: 25%;
+            height: 300px;
+            padding: 20px;
+            margin-right: 20px;
+            border: 1px solid black;
+        }
+        
+        nav ul {
+            margin: 15px;
+            /* list-style-type: none; */
+            padding: 0;
+        }
+        
+        nav ul li:hover {
+            color: blue;
+        }
+        
+        nav h5:hover {
+            color: red;
+        }
+        
+        nav ul li {
+            margin-bottom: 10px;
+        }
+        
+        article {
+            float: left;
+            padding: 20px;
+            width: 70%;
+            border: 1px solid black;
+        }
+        
+        section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        footer {
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        
+        @media (max-width: 600px) {
+            nav,
+            article {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        #controlPanel {
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body onload="LoadData()">
+    <header>
+        <h1>DANH SÁCH SINH VIÊN</h1>
+    </header>
+
+    <section>
+        <nav>
+            <h2>Danh sách lớp</h2>
+            <ul>
+                <li>
+                    <div onclick="showStudentsWithClass(1)">Lớp 1</div>
+                </li>
+                <li>
+                    <div onclick="showStudentsWithClass(2)">Lớp 2</div>
+                </li>
+                <li>
+                    <div onclick="showStudentsWithClass(3)">Lớp 3</div>
+                </li>
+            </ul>
+            <h5 onclick="showAllStudents()">Hiển thị tất cả</h5>
+        </nav>
+
+        <article>
+            <div id="controlPanel">
+                <h5>Thêm sinh viên</h5>
+                <hr width="100%" size="10px" />
+                <div class="row">
+                    <div class="col-2">
+                        <input class="col-11" type="text" id="txt_index" placeholder="Enter student">
+                    </div>
+                    <div class="col-3">
+                        <input class="col-11" type="text" id="txt_name" placeholder="Enter Họ và tên">
+                    </div>
+                    <div class="col-2">
+                        <input class="col-11" type="text" id="txt_studentCode" placeholder="Enter MSSV">
+                    </div>
+                    <div class="col-2">
+                        <input class="col-11" type="text" id="txt_class" placeholder="Enter class">
+                    </div>
+
+                    <button type="button" class="btn btn-warning col-1" style="height: 30px" id="btn_save" onclick="saveNewItem()">Thêm mới</button>
+                </div>
+            </div>
+            <hr width="100%" size="10px" />
+            <div>
+                <h5>Danh sách sinh viên</h5>
+                <hr width="100%" size="10px" />
+                <div class="row" style="margin-bottom: 10px">
+                    <div class="col-1"><b>STT</b></div>
+                    <div class="col-4"><b>Họ và Tên</b></div>
+                    <div class="col-5"><b>MSSV</b></div>
+                    <div class="col-2"><b>Chức năng</b></div>
+                </div>
+                <div id="Group-SV">
+
+                </div>
+            </div>
+        </article>
+    </section>
+    <script type="text/javascript">
+        let allData;
+        let data;
+        let isEditting;
+        let selectedStudentCode;
+
+        function LoadData() {
+            // let _s = "";
+            // $.post(
+            //     "http://45.32.20.144/", {
+            //         "DanhSach": "SV"
+            //     },
+            //     function(_data) {
+            //         data = _data;
+            //         showStudents(data);
+            //     },
+            //     "json"
+            // )
+
+
+            data = [{
+                name: "Sinh viên 1",
+                studentCode: "172737",
+                email: "hawdhaw@gmail.com",
+                class: 1
+            }, {
+                name: "Sinh viên 2",
+                studentCode: "782377",
+                email: "kajghwđp@gmail.com",
+                class: 2
+            }, {
+                name: "Sinh viên 3",
+                studentCode: "846834",
+                email: "cwikojdiwd@gmail.com",
+                class: 1
+            }, {
+                name: "Sinh viên 4",
+                studentCode: "263652",
+                email: "dkadiwdhushnd@gmail.com",
+                class: 1
+            }, {
+                name: "Sinh viên 5",
+                studentCode: "893468",
+                email: "dbjapdjkwjod@gmail.com",
+                class: 2
+            }, {
+                name: "Sinh viên 6",
+                studentCode: "325636",
+                email: "bdawud@gmail.com",
+                class: 2
+            }, ];
+
+            allData = data;
+
+            showStudents();
+        }
+
+        function showStudents() {
+            let _s = "";
+            $("#Group-SV").empty();
+            for (let _index in data) {
+                _s += `<div class="row"><div class="col-1">` + (+_index + 1) + `</div>
+                <div class="col-4">` + data[_index].name + `</div>
+                <div class="col-5">` + data[_index].studentCode + `</div>
+                <button type="button" class="btn btn-success" onclick="editElement(this)">Edit</button>
+                <button type="button" class="btn btn-danger" onclick="deleteElement(this)">Delete</button>
+                </div>`
+            }
+            $("#Group-SV").append(_s);
+        }
+
+        function showStudentsWithClass(_class) {
+            data = allData.filter(student => student.class === _class);
+            showStudents();
+        }
+
+        function showAllStudents(_class) {
+            data = allData;
+            showStudents();
+        }
+
+        function saveNewItem() {
+            if (isEditting) {
+                var newIndex = $("#txt_index").val();
+                var newName = $("#txt_name").val();
+                var newStudentCode = $("#txt_studentCode").val();
+                var newClass = $("#txt_class").val();
+
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].studentCode == selectedStudentCode) {
+                        data[i] = {
+                            "index": newIndex,
+                            "name": newName,
+                            "studentCode": newStudentCode,
+                            "class": newClass
+                        };
+                    }
+                }
+
+                $("#btn_save").text("Thêm mới");
+                isEditting = false;
+                showStudents();
+            } else { //add new Item
+                var newIndex = $("#txt_index").val();
+                var newName = $("#txt_name").val();
+                var newStudentCode = $("#txt_studentCode").val();
+                var newClass = $("#txt_class").val();
+                data.splice(0, 0, {
+                    "index": newIndex,
+                    "name": newName,
+                    "studentCode": newStudentCode,
+                    "class": newClass
+                });
+                showStudents();
+            }
+        }
+
+        function editElement(element) {
+            var rowElement = element.parentElement;
+            var _name = rowElement.children[1].innerText;
+            var _studentCode = rowElement.children[2].innerText;
+            isEditting = true;
+            $("#btn_save").text("Lưu thay đổi");
+
+            $("#txt_name").val(_name);
+            $("#txt_studentCode").val(_studentCode);
+            selectedStudentCode = _studentCode;
+        }
+
+        function deleteElement(element) {
+            var _confirm = confirm("Are you sure?");
+            if (_confirm) {
+                var rowElement = element.parentElement;
+                var _selectedStudentCode = rowElement.children[2].innerText;
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].studentCode == _selectedStudentCode) {
+                        data.splice(i, 1);
+                    }
+                }
+                showStudents();
+            }
+        }
+    </script>
+</body>
+
+</html>

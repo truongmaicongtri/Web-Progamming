@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <title>JS Event</title>
+</head>
+
+
+<body onload="LoadData()">
+    <h1>Danh sách sinh viên</h1>
+    <div class="row">
+        <div class="col-1">STT</div>
+        <div class="col-3">Họ và Tên</div>
+        <div class="col-2">MSSV</div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-3">
+            <input class="col-10" type="text" id="hoVaTen">
+        </div>
+        <div class="col-2">
+            <input class="col-10" type="text" id="mssv">
+        </div>
+
+        <button type="button" class="btn btn-warning col-1" id="btn_save" onclick="saveNewItem()">Insert</button>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <button type="button" class="btn btn-default col-3" id="btn_sort_name" onclick="sortDSSV('name')">Sắp xếp tên</button>
+        <button type="button" class="btn btn-default col-2" id="btn_sort_mssv" onclick="sortDSSV('mssv')">Sắp xếp MSSV</button>
+    </div>
+    <div class="Group-SV" id="Group-SV">
+    </div>
+    <br />
+    <h2>Background color picker:</h2>
+    <form>
+        Select background color:
+        <input type="color" name="favcolor" id="inputColor" value="#ff0000">
+        <button type="button" class="btn btn-warning col-1" onclick="submitColor()">Save</button>
+    </form>
+
+
+
+    <script type="text/javascript">
+        let data;
+        let isEditting;
+        let selectedMSSV;
+        let wasSortAscending = false;
+        let currentSortMethod = 'stt';
+
+        function LoadData() {
+            let _s = "";
+            $.post(
+                "http://45.32.20.144/", {
+                    "DanhSach": "SV"
+                },
+                function(_data) {
+                    data = _data;
+                    showItem(data);
+                },
+                "json"
+            )
+        }
+
+        function showItem(_data) {
+            let _s = "";
+            $("#Group-SV").empty();
+            for (let _index in _data) {
+                _s += `<div class="row"><div class="col-1">` + (+_index + 1) + `</div>
+                <div class="col-3">` + _data[_index].HoTen + `</div>
+                <div class="col-2">` + _data[_index].MSSV + `</div>
+                <button type="button" class="btn btn-success" onclick="editElement(this)">Edit</button>
+                <button type="button" class="btn btn-danger" onclick="deleteElement(this)">Delete</button>
+                </div>`
+            }
+            $("#Group-SV").append(_s);
+        }
+
+        function saveNewItem() {
+            if (isEditting) {
+                var editHoVaTen = $("#hoVaTen").val();
+                var editMssv = $("#mssv").val();
+
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].MSSV == selectedMSSV) {
+                        data[i] = {
+                            "HoTen": editHoVaTen,
+                            "MSSV": editMssv
+                        };
+                    }
+                }
+                $("#btn_save").text("Insert");
+                isEditting = false;
+                showItem(data);
+            } else { //add new Item
+                var newHoVaTen = $("#hoVaTen").val();
+                var newMssv = $("#mssv").val();
+                data.splice(0, 0, {
+                    "HoTen": newHoVaTen,
+                    "MSSV": newMssv
+                });
+                showItem(data);
+            }
+        }
+
+        function editElement(element) {
+            var rowElement = element.parentElement;
+            var _hoVaTen = rowElement.children[1].innerText;
+            var _mssv = rowElement.children[2].innerText;
+            isEditting = true;
+            $("#btn_save").text("Save");
+
+            $("#hoVaTen").val(_hoVaTen);
+            $("#mssv").val(_mssv);
+            selectedMSSV = _mssv;
+        }
+
+        function deleteElement(element) {
+            var _confirm = confirm("Are you sure?");
+            if (_confirm) {
+                var rowElement = element.parentElement;
+                var _mssv = rowElement.children[2].innerText;
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].MSSV == _mssv) {
+                        data.splice(i, 1);
+                    }
+                }
+                showItem(data);
+            }
+        }
+
+        function submitColor() {
+            var inputColor = $("#inputColor").val();
+            $("body").css("background", inputColor);
+
+        }
+
+        function sortDSSV(method) {
+            if (currentSortMethod !== method) {
+                wasSortAscending = false;
+            } else {
+                wasSortAscending = !wasSortAscending;
+            }
+
+            if (method === 'name') {
+                data.sort(function(a, b) {
+                    if (wasSortAscending) {
+                        if (a.HoTen > b.HoTen) {
+                            return -1;
+                        }
+                        if (b.HoTen > a.HoTen) {
+                            return 1;
+                        }
+                    } else {
+                        if (b.HoTen > a.HoTen) {
+                            return -1;
+                        }
+                        if (a.HoTen > b.HoTen) {
+                            return 1;
+                        }
+                    }
+                    return 0;
+                });
+                if (wasSortAscending) {
+                    $('#btn_sort_name').text('Sắp xếp tên: Giảm');
+                } else {
+                    $('#btn_sort_name').text('Sắp xếp tên: Tăng');
+                }
+            }
+
+            if (method === 'mssv') {
+                data.sort(function(a, b) {
+                    if (wasSortAscending) {
+                        if (a.MSSV > b.MSSV) {
+                            return -1;
+                        }
+                        if (b.MSSV > a.MSSV) {
+                            return 1;
+                        }
+                    } else {
+                        if (b.MSSV > a.MSSV) {
+                            return -1;
+                        }
+                        if (a.MSSV > b.MSSV) {
+                            return 1;
+                        }
+                    }
+                    return 0;
+                });
+                if (wasSortAscending) {
+                    $('#btn_sort_mssv').text('Sắp xếp mssv: Giảm dần');
+                } else {
+                    $('#btn_sort_mssv').text('Sắp xếp mssv: Tăng dần');
+                }
+            }
+            currentSortMethod = method;
+            showItem(data);
+        }
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+</body>
+
+</html>
