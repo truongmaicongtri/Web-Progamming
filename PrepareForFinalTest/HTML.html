@@ -92,16 +92,7 @@
     <section>
         <nav>
             <h2>Danh sách lớp</h2>
-            <ul>
-                <li>
-                    <div onclick="showStudentsWithClass(1)">Lớp 1</div>
-                </li>
-                <li>
-                    <div onclick="showStudentsWithClass(2)">Lớp 2</div>
-                </li>
-                <li>
-                    <div onclick="showStudentsWithClass(3)">Lớp 3</div>
-                </li>
+            <ul id="listNavigate">
             </ul>
             <h5 onclick="showAllStudents()">Hiển thị tất cả</h5>
         </nav>
@@ -111,9 +102,9 @@
                 <h5>Thêm sinh viên</h5>
                 <hr width="100%" size="10px" />
                 <div class="row">
-                    <div class="col-2">
+                    <!-- <div class="col-2">
                         <input class="col-11" type="text" id="txt_index" placeholder="Enter student">
-                    </div>
+                    </div> -->
                     <div class="col-3">
                         <input class="col-11" type="text" id="txt_name" placeholder="Enter Họ và tên">
                     </div>
@@ -121,7 +112,9 @@
                         <input class="col-11" type="text" id="txt_studentCode" placeholder="Enter MSSV">
                     </div>
                     <div class="col-2">
-                        <input class="col-11" type="text" id="txt_class" placeholder="Enter class">
+                        <select id="selectClass" style="height: 30px">
+
+                        </select>
                     </div>
 
                     <button type="button" class="btn btn-warning col-1" style="height: 30px" id="btn_save" onclick="saveNewItem()">Thêm mới</button>
@@ -134,7 +127,8 @@
                 <div class="row" style="margin-bottom: 10px">
                     <div class="col-1"><b>STT</b></div>
                     <div class="col-4"><b>Họ và Tên</b></div>
-                    <div class="col-5"><b>MSSV</b></div>
+                    <div class="col-3"><b>MSSV</b></div>
+                    <div class="col-2"><b>Lớp</b></div>
                     <div class="col-2"><b>Chức năng</b></div>
                 </div>
                 <div id="Group-SV">
@@ -145,9 +139,10 @@
     </section>
     <script type="text/javascript">
         let allData;
-        let data;
         let isEditting;
-        let selectedStudentCode;
+        // let selectedStudentCode;
+        let selectedStudent;
+        let selectedClass = 'all';
 
         function LoadData() {
             // let _s = "";
@@ -163,7 +158,7 @@
             // )
 
 
-            data = [{
+            allData = [{
                 name: "Sinh viên 1",
                 studentCode: "172737",
                 email: "hawdhaw@gmail.com",
@@ -195,18 +190,25 @@
                 class: 2
             }, ];
 
-            allData = data;
 
-            showStudents();
+            showNavigateAndSelectBox();
+            showStudents(allData);
         }
 
-        function showStudents() {
+        function showAllStudents() {
+            selectedClass = 'all';
+            showStudentsWithClass('all');
+        }
+
+
+        function showStudents(_data) {
             let _s = "";
             $("#Group-SV").empty();
-            for (let _index in data) {
+            for (let _index in _data) {
                 _s += `<div class="row"><div class="col-1">` + (+_index + 1) + `</div>
-                <div class="col-4">` + data[_index].name + `</div>
-                <div class="col-5">` + data[_index].studentCode + `</div>
+                <div class="col-4">` + _data[_index].name + `</div>
+                <div class="col-3">` + _data[_index].studentCode + `</div>
+                <div class="col-2">Lớp ` + _data[_index].class + `</div>
                 <button type="button" class="btn btn-success" onclick="editElement(this)">Edit</button>
                 <button type="button" class="btn btn-danger" onclick="deleteElement(this)">Delete</button>
                 </div>`
@@ -214,14 +216,52 @@
             $("#Group-SV").append(_s);
         }
 
-        function showStudentsWithClass(_class) {
-            data = allData.filter(student => student.class === _class);
-            showStudents();
+        function showNavigateAndSelectBox() {
+            var classes = getClasses();
+
+            showNavigate(classes);
+            showSelectBox(classes);
         }
 
-        function showAllStudents(_class) {
-            data = allData;
-            showStudents();
+        function getClasses() {
+            var setClasses = new Set(allData.map(student => student.class));
+            return Array.from(setClasses);
+        }
+
+        function handleNavigateOnPress(_class) {
+            selectedClass = _class;
+            refreshSaveButton();
+            showStudentsWithClass(_class);
+        }
+
+        function showStudentsWithClass(_class) {
+            if (_class == 'all') {
+                showStudents(allData);
+                return;
+            }
+
+            var _data = allData.filter(student => student.class == _class);
+            showStudents(_data);
+        }
+
+        function showNavigate(_classes) {
+            let _s = "";
+            _classes.forEach(c => {
+                _s += `
+                <li>
+                    <div onclick="handleNavigateOnPress(` + c + `)">Lớp ` + c + `</div>
+                </li>`
+            });
+            $("#listNavigate").append(_s);
+        }
+
+        function showSelectBox(_classes) {
+            let _s = "";
+            _classes.forEach(c => {
+                _s += `
+                <option value="` + c + `">Lớp ` + c + `</option>`
+            });
+            $("#selectClass").append(_s);
         }
 
         function saveNewItem() {
@@ -229,11 +269,11 @@
                 var newIndex = $("#txt_index").val();
                 var newName = $("#txt_name").val();
                 var newStudentCode = $("#txt_studentCode").val();
-                var newClass = $("#txt_class").val();
+                var newClass = $("#selectClass").val();
 
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].studentCode == selectedStudentCode) {
-                        data[i] = {
+                for (var i = 0; i < allData.length; i++) {
+                    if (allData[i].studentCode == selectedStudentCode) {
+                        allData[i] = {
                             "index": newIndex,
                             "name": newName,
                             "studentCode": newStudentCode,
@@ -242,21 +282,21 @@
                     }
                 }
 
-                $("#btn_save").text("Thêm mới");
+                refreshSaveButton();
                 isEditting = false;
-                showStudents();
+                showStudentsWithClass(selectedClass);
             } else { //add new Item
                 var newIndex = $("#txt_index").val();
                 var newName = $("#txt_name").val();
                 var newStudentCode = $("#txt_studentCode").val();
-                var newClass = $("#txt_class").val();
-                data.splice(0, 0, {
+                var newClass = $("#selectClass").val();
+                allData.splice(0, 0, {
                     "index": newIndex,
                     "name": newName,
                     "studentCode": newStudentCode,
                     "class": newClass
                 });
-                showStudents();
+                showStudentsWithClass(selectedClass);
             }
         }
 
@@ -264,11 +304,14 @@
             var rowElement = element.parentElement;
             var _name = rowElement.children[1].innerText;
             var _studentCode = rowElement.children[2].innerText;
+            var _class = rowElement.children[3].innerText;
             isEditting = true;
             $("#btn_save").text("Lưu thay đổi");
+            var _selectedClass = selectedClass == 'all' ? 1 : selectedClass;
 
             $("#txt_name").val(_name);
             $("#txt_studentCode").val(_studentCode);
+            $("#selectClass").val(_selectedClass);
             selectedStudentCode = _studentCode;
         }
 
@@ -277,13 +320,18 @@
             if (_confirm) {
                 var rowElement = element.parentElement;
                 var _selectedStudentCode = rowElement.children[2].innerText;
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].studentCode == _selectedStudentCode) {
-                        data.splice(i, 1);
+                for (var i = 0; i < allData.length; i++) {
+                    if (allData[i].studentCode == _selectedStudentCode) {
+                        allData.splice(i, 1);
                     }
                 }
-                showStudents();
+                showStudentsWithClass(selectedClass);
             }
+            refreshSaveButton();
+        }
+
+        function refreshSaveButton() {
+            $("#btn_save").text("Thêm mới");
         }
     </script>
 </body>
